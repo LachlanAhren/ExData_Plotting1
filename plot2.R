@@ -25,3 +25,4 @@ plot2 <- function() {
     plot(subset$DateTime,subset$Global_active_power,type="l",ylab="Global Active Power (kilowatts)", xlab = "")
     dev.off()
 }
+plot2()

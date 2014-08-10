@@ -30,3 +30,4 @@ plot3 <- function() {
     legend("topright",legend = leg.txt, col = col.txt,lty= c(1,1))
     dev.off()
 }
+plot3()

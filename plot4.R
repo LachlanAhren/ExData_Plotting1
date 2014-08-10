@@ -33,3 +33,4 @@ plot4 <- function() {
     plot(subset$DateTime,subset$Global_reactive_power,type="l",ylab="Global_reactive_power", xlab = "datetime")
     dev.off()
 }
+plot4()
