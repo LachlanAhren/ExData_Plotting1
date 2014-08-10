@@ -1,7 +1,20 @@
+# Retrieve file in a reproducible manner
+retrieve_file <- function() {
+    if (!file.exists("./data"))
+    {
+        dir.create("./data")
+    }
+    if (!file.exists("./data/household_power_consumption.txt"))
+    {
+        fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+        download.file(fileUrl,"./data/household_power_consumption.zip", "curl")
+        unzip("./data/household_power_consumption.zip",exdir = "./data")
+    }
+}
 # Create 4 plot image of power consumption on 2/1/2007 and 2/2/2007
 plot4 <- function() { 
     #Read Raw Data
-    data <- read.table("household_power_consumption.txt", colClasses = "character", sep=";", header=TRUE)
+    data <- read.table("./data/household_power_consumption.txt", colClasses = "character", sep=";", header=TRUE,na.strings ="?")
     #Extract relevant days
     subset <- data[data$Date=="1/2/2007" | data$Date=="2/2/2007", ]
     #Create usable timestamp
